@@ -24,4 +24,12 @@ public class Util {
         ByteBuffer buffer = ByteBuffer.wrap(bytes);
         return buffer.getInt();
     }
+
+    public static int booleanToBit(boolean bool) {
+        return bool ? 1 : 0;
+    }
+
+    public static byte[] convertIntegerToByteArray(int number) {
+        return ByteBuffer.allocate(Integer.BYTES).putInt(number).array();
+    }
 }

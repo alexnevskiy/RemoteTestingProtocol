@@ -1,5 +1,7 @@
 package com.polytech.protocol.remotetesting.model;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +31,15 @@ public class RemoteTestingMessage {
 
     public void setResourceRecords(List<ResourceRecord> resourceRecords) {
         this.resourceRecords = resourceRecords;
+    }
+
+    public byte[] getMessageBytes() {
+        List<Byte> messageBytesList = new ArrayList<>(header.getHeaderBytes());
+        for (ResourceRecord resourceRecord : resourceRecords) {
+            messageBytesList.addAll(resourceRecord.getResourceRecordBytes());
+        }
+        Byte[] bytes = messageBytesList.toArray(new Byte[0]);
+        return ArrayUtils.toPrimitive(bytes);
     }
 
     private List<ResourceRecord> getResourceRecordsFromByteArray(byte[] bytes) {

@@ -1,6 +1,10 @@
 package com.polytech.protocol.remotetesting.model;
 
+import com.google.common.primitives.Bytes;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Header {
     private boolean cs = false;
@@ -61,5 +65,14 @@ public class Header {
 
     public void setRrCount(int rrCount) {
         this.rrCount = rrCount;
+    }
+
+    public List<Byte> getHeaderBytes() {
+        List<Byte> headerList = new ArrayList<>();
+        int firstByte = (Util.booleanToBit(cs) << 7) | (mode << 3) | (rCode);
+        headerList.add((byte) firstByte);
+        headerList.add(id);
+        headerList.addAll(Bytes.asList(Util.convertIntegerToByteArray(rrCount)));
+        return headerList;
     }
 }

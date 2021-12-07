@@ -1,7 +1,11 @@
 package com.polytech.protocol.remotetesting.model;
 
+import com.google.common.primitives.Bytes;
+
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ResourceRecord {
     private short length = 0;
@@ -32,5 +36,11 @@ public class ResourceRecord {
 
     public String getDataString() {
         return new String(data, StandardCharsets.UTF_8);
+    }
+
+    public List<Byte> getResourceRecordBytes() {
+        List<Byte> resourceRecordList = new ArrayList<>(Bytes.asList(Util.convertIntegerToByteArray(length)));
+        resourceRecordList.addAll(Bytes.asList(data));
+        return resourceRecordList;
     }
 }
