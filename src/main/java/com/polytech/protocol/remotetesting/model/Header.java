@@ -10,7 +10,7 @@ public class Header {
     private boolean cs = false;
     private byte mode = 0;
     private byte rCode = 0;
-    private byte id = 0;
+    private final byte mbz = 0;
     private int rrCount = 0;
 
     public Header() {}
@@ -23,7 +23,6 @@ public class Header {
         cs = Util.getBit(bytes[0], 0);
         mode = Util.getByte(bytes[0], 1, 4);
         rCode = Util.getByte(bytes[0], 5, 7);
-        id = bytes[1];
         rrCount = Util.convertToInt(Arrays.copyOfRange(bytes, 2, 5));
     }
 
@@ -51,12 +50,8 @@ public class Header {
         this.rCode = rCode;
     }
 
-    public byte getId() {
-        return id;
-    }
-
-    public void setId(byte id) {
-        this.id = id;
+    public byte getMbz() {
+        return mbz;
     }
 
     public int getRrCount() {
@@ -71,7 +66,7 @@ public class Header {
         List<Byte> headerList = new ArrayList<>();
         int firstByte = (Util.booleanToBit(cs) << 7) | (mode << 3) | (rCode);
         headerList.add((byte) firstByte);
-        headerList.add(id);
+        headerList.add(mbz);
         headerList.addAll(Bytes.asList(Util.convertIntegerToByteArray(rrCount)));
         return headerList;
     }
