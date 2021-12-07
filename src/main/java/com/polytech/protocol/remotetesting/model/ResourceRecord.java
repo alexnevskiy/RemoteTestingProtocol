@@ -1,4 +1,4 @@
-package com.polytech.protocol.model;
+package com.polytech.protocol.remotetesting.model;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
