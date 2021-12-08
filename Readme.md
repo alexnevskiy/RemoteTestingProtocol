@@ -71,4 +71,4 @@
 
 ## Пример работы протокола
 
-![](/images/Remote Testing.svg)
+![](images/Remote_Testing.svg)
