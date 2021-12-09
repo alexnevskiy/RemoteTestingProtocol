@@ -3,10 +3,10 @@
   <groupId>com.polytech.protocol</groupId>
   <artifactId>RemoteTestingProtocol</artifactId>
   <versioning>
-    <release>0.0.4</release>
+    <release>0.0.5</release>
     <versions>
-      <version>0.0.4</version>
+      <version>0.0.5</version>
     </versions>
-    <lastUpdated>20211209083206</lastUpdated>
+    <lastUpdated>20211209093455</lastUpdated>
   </versioning>
 </metadata>
