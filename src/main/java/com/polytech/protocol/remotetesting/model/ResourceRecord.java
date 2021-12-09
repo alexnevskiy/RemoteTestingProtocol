@@ -14,8 +14,8 @@ public class ResourceRecord {
     public ResourceRecord() {}
 
     public ResourceRecord(byte[] bytes) {
-        length = Util.convertToShort(Arrays.copyOfRange(bytes, 0, 1));
-        data = Arrays.copyOfRange(bytes, 2, length + 2);
+        length = Util.convertToShort(Arrays.copyOfRange(bytes, 0, 2));
+        data = Arrays.copyOfRange(bytes, 2, length + 3);
     }
 
     public short getLength() {
@@ -39,7 +39,7 @@ public class ResourceRecord {
     }
 
     public List<Byte> getResourceRecordBytes() {
-        List<Byte> resourceRecordList = new ArrayList<>(Bytes.asList(Util.convertIntegerToByteArray(length)));
+        List<Byte> resourceRecordList = new ArrayList<>(Bytes.asList(Util.convertShortToByteArray((short)length)));
         resourceRecordList.addAll(Bytes.asList(data));
         return resourceRecordList;
     }

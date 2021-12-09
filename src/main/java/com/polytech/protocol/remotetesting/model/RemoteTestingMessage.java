@@ -13,7 +13,7 @@ public class RemoteTestingMessage {
     public RemoteTestingMessage() {}
 
     public RemoteTestingMessage(byte[] bytes) {
-        header = new Header(Arrays.copyOfRange(bytes, 0, 5));
+        header = new Header(Arrays.copyOfRange(bytes, 0, 6));
         resourceRecords = getResourceRecordsFromByteArray(bytes);
     }
 

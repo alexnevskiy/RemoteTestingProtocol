@@ -32,4 +32,8 @@ public class Util {
     public static byte[] convertIntegerToByteArray(int number) {
         return ByteBuffer.allocate(Integer.BYTES).putInt(number).array();
     }
+
+    public static byte[] convertShortToByteArray(short number) {
+        return ByteBuffer.allocate(Short.BYTES).putShort(number).array();
+    }
 }
