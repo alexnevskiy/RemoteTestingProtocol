@@ -7,12 +7,12 @@ public class Util {
         return (b >> bitNumber & 1) == 1;
     }
 
-    public static byte getByte(byte b, int startBitNumber, int endBitNumber) {
+    public static byte getByteWithShift(byte b, int startBitNumber, int endBitNumber, int shift) {
         byte mask = 0;
         for (int i = startBitNumber; i <= endBitNumber; i++) {
             mask += Math.pow(2, i);
         }
-        return (byte) (b & mask);
+        return (byte) ((b & mask) >> shift);
     }
 
     public static short convertToShort(byte[] bytes) {

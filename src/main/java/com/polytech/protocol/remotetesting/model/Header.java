@@ -21,8 +21,8 @@ public class Header {
         }
 
         cs = Util.getBit(bytes[0], 0);
-        mode =(byte) ((bytes[0] & 0b01111000) >> 3);
-        rCode = Util.getByte(bytes[0], 5, 7);
+        mode = Util.getByteWithShift(bytes[0], 1, 4, 3);
+        rCode = Util.getByteWithShift(bytes[0], 5, 7, 0);
         rrCount = Util.convertToInt(Arrays.copyOfRange(bytes, 2, 6));
     }
 

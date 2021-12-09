@@ -39,7 +39,7 @@ public class ResourceRecord {
     }
 
     public List<Byte> getResourceRecordBytes() {
-        List<Byte> resourceRecordList = new ArrayList<>(Bytes.asList(Util.convertShortToByteArray((short)length)));
+        List<Byte> resourceRecordList = new ArrayList<>(Bytes.asList(Util.convertShortToByteArray(length)));
         resourceRecordList.addAll(Bytes.asList(data));
         return resourceRecordList;
     }
