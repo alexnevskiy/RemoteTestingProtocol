@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 
 public class Util {
     public static boolean getBit(byte b, int bitNumber) {
-        return (b >> bitNumber & 1) == 1;
+        return ((b >> bitNumber) & 1) == 1;
     }
 
     public static byte getByteWithShift(byte b, int startBitNumber, int endBitNumber, int shift) {

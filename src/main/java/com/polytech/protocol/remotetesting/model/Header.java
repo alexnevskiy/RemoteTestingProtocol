@@ -20,9 +20,9 @@ public class Header {
             throw new IllegalArgumentException("The number of bytes does not match 6.");
         }
 
-        cs = Util.getBit(bytes[0], 0);
-        mode = Util.getByteWithShift(bytes[0], 1, 4, 3);
-        rCode = Util.getByteWithShift(bytes[0], 5, 7, 0);
+        cs = Util.getBit(bytes[0], 7);
+        mode = Util.getByteWithShift(bytes[0], 3, 6, 3);
+        rCode = Util.getByteWithShift(bytes[0], 0, 2, 0);
         rrCount = Util.convertToInt(Arrays.copyOfRange(bytes, 2, 6));
     }
 
